@@ -1,0 +1,13 @@
+---
+- name: Install the latest version of Squid
+  yum:
+    name: squid
+    state: latest
+    update_cache: true
+  become: true
+
+- name: Enable service Squid and ensure it is not masked
+  ansible.builtin.systemd:
+    name: squid
+    enabled: yes
+    masked: no

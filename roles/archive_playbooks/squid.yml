@@ -1,9 +1,9 @@
 ---
 - hosts:
-    apps
+    appservers
   become: true
   gather_facts: no
 
   roles:
     - base_role
-    - install_squid
+    - install squid

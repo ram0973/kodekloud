@@ -1,4 +1,16 @@
-[appservers]
-stapp01   ansible_host=172.16.238.10 ansible_ssh_host=stapp01 ansible_ssh_user=tony  ansible_sudo_pass=Ir0nM@n
-stapp02   ansible_host=172.16.238.11 ansible_ssh_host=stapp02 ansible_ssh_user=steve ansible_sudo_pass=Am3ric@
-stapp03   ansible_host=172.16.238.12 ansible_ssh_host=stapp03 ansible_ssh_user=banner ansible_sudo_pass=BigGr33n
+[apps]
+stapp01   ansible_host=172.16.238.10 ansible_ssh_host=stapp01  ansible_ssh_user=tony    ansible_sudo_pass=Ir0nM@n   # Nautilus App 1
+stapp02   ansible_host=172.16.238.11 ansible_ssh_host=stapp02  ansible_ssh_user=steve   ansible_sudo_pass=Am3ric@   # Nautilus App 2
+stapp03   ansible_host=172.16.238.12 ansible_ssh_host=stapp03  ansible_ssh_user=banner  ansible_sudo_pass=BigGr33n  # Nautilus App 3
+[lb]
+stlb01	  ansible_host=172.16.238.14 ansible_ssh_host=stlb01   ansible_ssh_user=loki	ansible_sudo_pass=Mischi3f  # Nautilus HTTP LBR
+[db]
+stdb01	  ansible_host=172.16.239.10 ansible_ssh_host=stdb01   ansible_ssh_user=peter	ansible_sudo_pass=Sp!dy     # Nautilus DB Server
+[storage]
+ststor01  ansible_host=172.16.238.15 ansible_ssh_host=ststor01 ansible_ssh_user=natasha	ansible_sudo_pass=Bl@kW     # Nautilus Storage Server
+[backup]
+stbkp01	  ansible_host=172.16.238.16 ansible_ssh_host=stbkp01  ansible_ssh_user=clint	ansible_sudo_pass=H@wk3y3   # Nautilus Backup Server
+[mail]
+stmail01  ansible_host=172.16.238.17 ansible_ssh_host=stmail01 ansible_ssh_user=groot	ansible_sudo_pass=Gr00T123  # Nautilus Mail Server
+[cicd]
+jenkins	  ansible_host=172.16.238.19 ansible_ssh_host=jenkins  ansible_ssh_user=jenkins	ansible_sudo_pass=j@rv!s    # Jenkins Server for CI/CD
