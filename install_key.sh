@@ -14,3 +14,29 @@ set -o pipefail
 
 ssh-keygen
 chmod -R o-rwx,g-rwx ~/.ssh/*
+
+tee -a ~/.ssh/config << END
+Host stapp01
+  Hostname 172.16.238.10
+  User tony
+
+Host stapp02
+  Hostname 172.16.238.11
+  User steve
+
+Host stapp03
+  Hostname 172.16.238.12
+  User banner
+
+Host stdb01
+  Hostname 172.16.239.10
+  User peter
+END
+
+chmod -R o-rwx,g-rwx ~/.ssh/*
+ssh-copy-id -i ~/.ssh/id_rsa.pub tony@stapp01
+ssh-copy-id -i ~/.ssh/id_rsa.pub steve@stapp02
+ssh-copy-id -i ~/.ssh/id_rsa.pub banner@stapp03
+#ssh-copy-id -i ~/.ssh/id_rsa.pub peter@stdb01
+
+
