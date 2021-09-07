@@ -1,0 +1,4 @@
+[appservers]
+stapp01   ansible_host=172.16.238.10 ansible_ssh_host=stapp01 ansible_ssh_user=tony  ansible_sudo_pass=Ir0nM@n
+stapp02   ansible_host=172.16.238.11 ansible_ssh_host=stapp02 ansible_ssh_user=steve ansible_sudo_pass=Am3ric@
+stapp03   ansible_host=172.16.238.12 ansible_ssh_host=stapp03 ansible_ssh_user=banner ansible_sudo_pass=BigGr33n

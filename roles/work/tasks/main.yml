@@ -1,0 +1,40 @@
+- name: Make sure we have a 'wheel' group
+  group:
+    name: wheel
+    state: present
+
+- name: Allow 'wheel' group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
+
+- name: Add sudoers users to wheel group
+  user:
+    name=thor
+    groups=wheel
+    append=yes
+    state=present
+    createhome=yes
+
+- name: Set up authorized keys for the thor user
+  authorized_key: user=thor key="{{item}}"
+  with_file:
+    - /home/thor/.ssh/id_rsa.pub
+
+
+
+- name: Install the latest version of Squid
+  yum:
+    name: squid
+    state: latest
+    update_cache: true
+  become: true
+
+- name: Enable service Squid and ensure it is not masked
+  ansible.builtin.systemd:
+    name: squid
+    enabled: yes
+    masked: no
