@@ -12,9 +12,10 @@ set -o pipefail
 # Turn on traces, useful while debugging but commented out by default
 # set -o xtrace
 
-ssh-keygen
+ssh-keygen -N "" -f ~/.ssh/id_rsa
 
-tee -a ~/.ssh/config < END
+echo "" > ~/.ssh/config
+tee -a ~/.ssh/config << END
 Host stapp01
   Hostname 172.16.238.10
   User tony
@@ -46,9 +47,9 @@ END
 
 chmod -R o-rwx,g-rwx ~/.ssh/*
 
-ssh-copy-id -i ~/.ssh/id_rsa.pub tony@stapp01
-ssh-copy-id -i ~/.ssh/id_rsa.pub steve@stapp02
-ssh-copy-id -i ~/.ssh/id_rsa.pub banner@stapp03
+#ssh-copy-id -i ~/.ssh/id_rsa.pub tony@stapp01
+#ssh-copy-id -i ~/.ssh/id_rsa.pub steve@stapp02
+#ssh-copy-id -i ~/.ssh/id_rsa.pub banner@stapp03
 #ssh-copy-id -i ~/.ssh/id_rsa.pub loki@stlb01
 #ssh-copy-id -i ~/.ssh/id_rsa.pub peter@stdb01
 #ssh-copy-id -i ~/.ssh/id_rsa.pub natasha@ststor01
