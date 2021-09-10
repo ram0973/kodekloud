@@ -5,5 +5,4 @@
   gather_facts: no
 
   roles:
-    - base_role
-    - install_squid
+    - disable_root_login_ssh 
