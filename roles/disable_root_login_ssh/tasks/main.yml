@@ -1,6 +1,10 @@
 ---
-tasks:
   - name: Disable root login over SSH
     lineinfile: dest=/etc/ssh/sshd_config regexp="^PermitRootLogin" line="PermitRootLogin no" state=present
     notify:
-      - restart sshd
+    - restart sshd
+
+  - handlers:
+    - name: restart sshd
+      service: name=sshd state=restarted
+

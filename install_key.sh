@@ -47,9 +47,9 @@ END
 
 chmod -R o-rwx,g-rwx ~/.ssh/*
 
-#ssh-copy-id -i ~/.ssh/id_rsa.pub tony@stapp01
-#ssh-copy-id -i ~/.ssh/id_rsa.pub steve@stapp02
-#ssh-copy-id -i ~/.ssh/id_rsa.pub banner@stapp03
+ssh-copy-id -i ~/.ssh/id_rsa.pub tony@stapp01
+ssh-copy-id -i ~/.ssh/id_rsa.pub steve@stapp02
+ssh-copy-id -i ~/.ssh/id_rsa.pub banner@stapp03
 #ssh-copy-id -i ~/.ssh/id_rsa.pub loki@stlb01
 #ssh-copy-id -i ~/.ssh/id_rsa.pub peter@stdb01
 #ssh-copy-id -i ~/.ssh/id_rsa.pub natasha@ststor01
