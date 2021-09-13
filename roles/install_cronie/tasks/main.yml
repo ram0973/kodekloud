@@ -7,6 +7,7 @@
   
 - name: Enable service Cronie and ensure it is not masked
   ansible.builtin.systemd:
-    name: cronie
+    name: cron
     enabled: yes
     masked: no
+  notify: start cron
