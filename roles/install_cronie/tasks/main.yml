@@ -5,9 +5,9 @@
     state: latest
     
   
-- name: Enable service Cronie and ensure it is not masked
+- name: Enable service crond and ensure it is not masked
   ansible.builtin.systemd:
-    name: cron
+    name: crond
     enabled: yes
     masked: no
-  notify: start cron
+  notify: start crond
