@@ -1,0 +1,3 @@
+---
+    - name: restart cronie
+      service: name=cronie state=restarted

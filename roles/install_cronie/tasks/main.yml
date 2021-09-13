@@ -1,0 +1,12 @@
+---
+- name: Install the latest version of Cronie
+  ansible.builtin.package:
+    name: cronie
+    state: latest
+    
+  
+- name: Enable service Cronie and ensure it is not masked
+  ansible.builtin.systemd:
+    name: cronie
+    enabled: yes
+    masked: no

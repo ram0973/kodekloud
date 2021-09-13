@@ -1,0 +1,10 @@
+- name: Creates a cron file under /etc/cron.d
+  ansible.builtin.cron:
+    name: Setup a cron job
+    month: "*"
+    day: "*"
+    weekday: "*"
+    minute: "*/5"
+    hour: "*"
+    user: root
+    job: "echo hello > /tmp/cron_text"
