@@ -1,0 +1,13 @@
+---
+- name: Install the latest version of Tomcat
+  ansible.builtin.package:
+    name: tomcat
+    state: latest
+    
+  
+- name: Enable service Tomcat and ensure it is not masked and start
+  ansible.builtin.systemd:
+    name: tomcat
+    enabled: yes
+    masked: no
+    state: started

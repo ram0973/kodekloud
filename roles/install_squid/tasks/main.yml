@@ -10,3 +10,4 @@
     name: squid
     enabled: yes
     masked: no
+    state: started
