@@ -1,0 +1,17 @@
+---
+- name: Install the latest version of epel-release
+  ansible.builtin.package:
+    name: epel-release
+    state: latest
+
+- name: Install the latest version of Nginx
+  ansible.builtin.package:
+    name: nginx
+    state: latest
+
+- name: Enable service Nginx and ensure it is not masked and start it
+  ansible.builtin.systemd:
+    name: nginx
+    enabled: yes
+    masked: no
+    state: started

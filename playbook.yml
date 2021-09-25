@@ -6,5 +6,5 @@
 
   roles:
     - sudo_thor
-    - install_tomcat
+    - install_nginx
     
