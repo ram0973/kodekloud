@@ -1,0 +1,5 @@
+---
+- name: Install the latest version of Epel-release
+  ansible.builtin.package:
+    name: epel-release
+    state: latest
