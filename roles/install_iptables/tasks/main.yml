@@ -1,0 +1,17 @@
+---
+- name: Install the latest version of iptables
+  ansible.builtin.package:
+    name: iptables
+    state: latest
+
+- name: Install the latest version of iptables-services
+  ansible.builtin.package:
+    name: iptables-services
+    state: latest
+
+- name: Enable service Nginx and ensure it is not masked and start it
+  ansible.builtin.systemd:
+    name: iptables
+    enabled: yes
+    masked: no
+    state: started
