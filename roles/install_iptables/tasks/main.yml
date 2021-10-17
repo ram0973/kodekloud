@@ -1,4 +1,11 @@
 ---
+- name: Disable, stop and mask service firewalld
+  ansible.builtin.systemd:
+    name: firewalld
+    enabled: no
+    masked: yes
+    state: stopped
+
 - name: Install the latest version of iptables
   ansible.builtin.package:
     name: iptables
@@ -9,7 +16,7 @@
     name: iptables-services
     state: latest
 
-- name: Enable service Nginx and ensure it is not masked and start it
+- name: Enable service Iptables and ensure it is not masked and start it
   ansible.builtin.systemd:
     name: iptables
     enabled: yes
